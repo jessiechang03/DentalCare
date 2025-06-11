@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dental Appointment Booking System</title>
+    <link rel="shortcut icon" href="images/dentalLogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+    <style>
+        .inputBox{
+            position: relative;
+        }
+        #toggle{
+            position: absolute;
+            right: 9px;
+            top: 32px;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: url(./images/show.png);
+            background-size: cover;
+            cursor: pointer;
+            z-index: 1;
+        }
+        #toggle.hide{
+            background: url(./images/hide.png);
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <div class="form">
+        <div class="container-logo">
+            <a href="login.html"><img src="images/dentalLogo.png" alt="Dental Logo" id="dentalLogo"></a>
+            <br><br><br>
+        </div>
+
+        <form class="login-form" method="post" action="login.php">
+            <input type="text" name="username" id="username" placeholder="Username" required>
+            <br><br>
+            <div class="inputBox">
+            <input type="password" name="password" id="password" placeholder="Password" required>
+            <div id="toggle" onclick="showHide();"></div>
+            </div>
+            <br><br>
+            <select class="role" name="userlevel" id="userlevel" required>
+                <option value="" selected="selected">- select role - </option>
+                <option value="1">Admin</option>
+                <option value="2">Dentist</option>
+                <option value="3">Patient</option>
+            </select>
+            <br><br>
+            <input id="submit-button" type="submit" value="Sign In">
+        </form>
+
+        <br><br>
+        <div class="registerUser">
+            Don't have an account? <a href="register_user.php" style="color:blue; text-decoration: none;">Sign Up</a>
+        </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        const password = document.getElementById('password');
+        const toggle = document.getElementById('toggle');
+        function showHide(){
+            if(password.type === 'password'){
+                password.setAttribute('type','text');
+                toggle.classList.add('hide')
+            }
+            else{
+                password.setAttribute('type','password');
+                toggle.classList.remove('hide')
+            }
+        }
+    </script>
+</body>
+</html>
